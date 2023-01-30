@@ -5,15 +5,21 @@ from django.shortcuts import render, get_object_or_404
 
 def passcard_info_view(request, passcode):
     passcard = get_object_or_404(Passcard, passcode=passcode)
-    visit = Visit.objects.filter(passcard=passcard)[0]
-
-    this_passcard_visits = [
-        {
-            'entered_at': visit.entered_at,
-            'duration': Visit.format_duration( visit.leaved_at - visit.entered_at),
-            'is_strange': visit.is_visit_long()
+    visits = Visit.objects.filter(passcard=passcard)
+    this_passcard_visits =[] 
+ 
+    for visit_data in visits:  
+        duration=visit_data.get_duration(visit_data.leaved_at)
+        this_passcard_visits.append(
+             {
+            'entered_at': visit_data.entered_at,
+            'duration': visit_data.format_duration(duration),
+            'is_strange': visit_data.is_visit_long()
         },
-    ]
+        )
+
+
+
     context = {
         'passcard': passcard,
         'this_passcard_visits': this_passcard_visits

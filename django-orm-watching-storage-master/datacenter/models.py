@@ -30,13 +30,13 @@ class Visit(models.Model):
             )
         )
     
-    def  get_duration(self):
-        stay = now()-self.entered_at
+    def  get_duration(self, leaved_time=now()):
+        stay = leaved_time-self.entered_at
         return stay
     
-    def  format_duration(td):
-        hours = int(td/datetime.timedelta(hours=1)) 
-        minutes = int(td/datetime.timedelta(minutes=1) - hours*60) 
+    def  format_duration(self, duration):
+        hours = int(duration/datetime.timedelta(hours=1)) 
+        minutes = int(duration/datetime.timedelta(minutes=1) - hours*60) 
  
         return f'{hours}ч {minutes}мин'
 
