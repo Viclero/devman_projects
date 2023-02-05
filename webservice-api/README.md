@@ -20,11 +20,22 @@ Location for token is  .env
 BITLY_TOKEN = 'd8c8a967a1f2256b691986u8021d26cd1347dfec'
 ```
  
- To get token sign up [bit.ly](https://bit.ly) . Go Profile->API->Access token
+ To get token sign up [bitly.com](https://bitly.com) . Go Profile->API->Access token
 
  
-## To Start counting
+## Work example
 
-run get_clicks.py
+* short link
+```
+> get_clicks.py
+https://yandex.ru       
+bit.ly/3jrgELV
+``` 
 
-Enter bit.ly short link or URL
+* URL
+```
+> get_clicks.py
+https://bit.ly/3jrgELV 
+5
+```
+
