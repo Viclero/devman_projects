@@ -2,7 +2,7 @@
 
 Program shows how many clicks a bitly link has. If entered URL doesn't have short link, program return it.
 
-## Installation
+## Requirements
 
 Python3 should be already installed. Then use pip (or pip3, if there is a conflict with Python2) to install dependencies:
 ```
